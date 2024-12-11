@@ -48,6 +48,7 @@ const FormBox = styled("div")(() => ({
   boxShadow: "0px 10px 30px #00000012",
   maxWidth: "400px",
   flexGrow: 1,
+  backgroundColor: "#FFF",
 }));
 
 type FormValues = {
