@@ -54,10 +54,10 @@ const DialogForm = (props: DialogFormProps) => {
 
   const onSubmit: SubmitHandler<FormValues> = useCallback(
     async (data) => {
+      onClose();
       const result = await addTask(data, user as string);
       if (result.success) {
         refreshTasks();
-        onClose();
       } else {
         setError(result.error);
       }
