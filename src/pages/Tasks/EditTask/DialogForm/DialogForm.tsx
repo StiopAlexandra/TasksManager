@@ -66,7 +66,13 @@ const DialogForm = (props: DialogFormProps) => {
   );
 
   return (
-    <Dialog open={open} fullWidth maxWidth="xs" onClose={() => onClose()}>
+    <Dialog
+      open={open}
+      fullWidth
+      maxWidth="xs"
+      onClose={() => onClose()}
+      PaperProps={{ sx: { borderRadius: "10px" } }}
+    >
       <DialogTitle
         sx={{ padding: "30px 30px 20px" }}
         align="center"
