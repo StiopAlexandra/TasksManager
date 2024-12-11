@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 
 import UserContext from "../../contexts/UserContext";
 import { User } from "../../types";
@@ -16,15 +16,15 @@ type UserProviderProps = {
 const UserProvider = ({ children }: UserProviderProps) => {
   const [user, setUser] = useState<User["email"] | null>(null);
 
-  const signOut = () => {
+  const signOut = useCallback(() => {
     removeFromStorage(ACCESS_KEY);
     setUser(null);
-  };
+  }, []);
 
-  const signIn = (email: User["email"]) => {
+  const signIn = useCallback((email: User["email"]) => {
     saveToStorage(ACCESS_KEY, email);
     setUser(email);
-  };
+  },[]);
 
   const contextValue = useMemo(
     () => ({
